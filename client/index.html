@@ -16,5 +16,57 @@
             });
       };
     </script>
+   
+   <button id='fortuneCookie'>Get a fortune</button>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <Script>
+      document.getElementById('fortuneCookie').onclick = function () {
+        axios.get('http://localhost:4000/api/fortune/')
+          .then(function (repsonse) {
+            const data = response.data;
+            alert(data);
+          });
+      }
+    </script>
+
+
+<button id='zSign'>Get a random Horoscope</button>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  document.getElementById('zSign').onclick = function () {
+    axios.get('http://localhost:4000/api/Zodiac/')
+      .then(function (response) {
+        const data = response.data;
+        alert(data);
+      })
+  }
+</script>
+
+<form id='fColor'>
+  <label for='fColor'>What is your favorite color?</label>
+  <input type='text' id='fColor' name='fColor'>
+  <input type='submit' value='Submit'>
+</form>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  document.getElementById('fColor').onsubmit = function () {
+    axios.get('http://localhost:4000/api/fColor/')
+      .then(function (response) {
+        const data = response.data;
+        alert(data);
+      })
+  }
+</script>
+<p>Pick your favorite quote:</p>
+<form id='quotes'> 
+  <input type='radio' id='mScott' name='fav_quote' value= "stitious">
+  <label for='stitious'>I'm not superstitious, but I am a little stitious, -Micheal Scott</label> <br>
+  <input type='radio' id='aDwyre' name='fav_quote' value='connectivity'>
+  <label for='connectivity'>Leslie, I typed your symptoms into the thing up here, and it says you could have network connectivity problems, - Andy Dwyer</label> <br>
+  <input type='radio' id='gLinetti' name='fav_quote' value='workflow'>
+  <label for='workflow'>I'd describe the workflow today as dismal, with a tiny dash of pathetic, - Gina Linetti</label> <br>
+  <input type='submit' value='Submit'>
+</form>
+
   </body>
 </html>
